@@ -3,51 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Quiz - Início</title>
+    <title>Minecraft Quiz</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <header>
-        <h1>⛏ MINECRAFT QUIZ ⛏</h1>
+
+    <!-- ===== HEADER FIXO ===== -->
+    <header class="site-header">
+        <a href="#inicio">
+            <img src="img/logo-minecraft.png" alt="Minecraft" class="logo-img">
+        </a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#mundo">O Mundo</a>
+            <a href="#quiz">Quiz</a>
+        </nav>
     </header>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="mundo.html">O Mundo</a>
-        <a href="login.jsp">Fazer o Quiz</a>
-    </nav>
-    <div class="container">
-        <div class="banner">
-            <h2>Explore o mundo dos blocos</h2>
-            <p>Leia sobre Minecraft e teste seus conhecimentos no nosso quiz!</p>
-            <a href="sobre.html" class="btn">Começar a explorar</a>
+
+    <!-- ===== HERO (Início) ===== -->
+    <section id="inicio" class="section" style="background-image: url('img/hero.png');">
+        <h1 class="hero-titulo">Crie, explore, sobreviva.</h1>
+        <p class="hero-subtitulo">O limite é a sua criatividade!</p>
+        <p class="hero-info">Saiba mais sobre um dos jogos eletrônicos mais populares e vendidos da história.</p>
+        <a href="#sobre" class="btn-mc">Comece a explorar</a>
+        <a href="#sobre" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== SOBRE O MINECRAFT ===== -->
+    <section id="sobre" class="section" style="background-image: url('img/bg-sobre.png');">
+        <a href="#inicio" class="btn-mc btn-subir">▲</a>
+        <h2>Sobre o Minecraft</h2>
+        <div class="caixa-moldura">
+            <img src="img/sobre-imagem.jpg" alt="Minecraft">
+            <p>Minecraft é um jogo eletrônico do tipo sandbox criado pelo sueco Markus "Notch" Persson e desenvolvido pela Mojang Studios. Foi lançado oficialmente em 2011 e desde então se tornou um fenômeno mundial, sendo um dos jogos mais vendidos de todos os tempos.</p>
+            <p>No jogo, o jogador explora um mundo aberto formado inteiramente por blocos. É possível minerar recursos, construir estruturas, criar ferramentas e sobreviver a criaturas hostis. A liberdade criativa é a marca registrada do Minecraft.</p>
         </div>
+        <a href="#modos" class="btn-mc btn-descer">▼</a>
+    </section>
 
-        <h2>Bem-vindo ao Minecraft Quiz</h2>
-        <p>Minecraft é um dos jogos mais vendidos de todos os tempos. Neste site, você vai conhecer um pouco sobre esse universo de blocos, criaturas e aventuras — e no final pode responder a um quiz com 8 perguntas para testar o que aprendeu.</p>
-        <p>Navegue pelas seções <strong>Sobre</strong> e <strong>O Mundo</strong>, descubra os modos de jogo, os mobs e os biomas, e depois clique em <strong>Fazer o Quiz</strong> para participar. Suas respostas ficam salvas no sistema!</p>
-
-        <img class="img-minecraft" src="https://images.unsplash.com/photo-1607853202273-797f1c22a38e?w=1000" alt="Mundo de Minecraft">
-
-        <h2>O que você vai encontrar</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h3>📖 Sobre o jogo</h3>
-                <p>História, criador e modos de jogo.</p>
+    <!-- ===== MODOS DE JOGO (CARROSSEL) ===== -->
+    <section id="modos" class="section" style="background-image: url('img/bg-modos.png');">
+        <a href="#sobre" class="btn-mc btn-subir">▲</a>
+        <h2>Modos de Jogo</h2>
+        <div class="carrossel-wrapper">
+            <button class="seta" onclick="moverCarrossel('modos', -1)">◀</button>
+            <div class="carrossel-viewport">
+                <div class="carrossel-track" id="track-modos">
+                    <div class="carrossel-slide">
+                        <img src="img/modo-survival.png" alt="Survival">
+                        <p><strong>Survival:</strong> O Modo de sobrevivência. Nele você precisa coletar recursos, se alimentar e se proteger de monstros.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/modo-creative.png" alt="Creative">
+                        <p><strong>Creative:</strong> Modo criativo. Neste modo há recursos infinitos, voo livre e nenhum dano. Ideal para construir.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/modo-adventure.png" alt="Adventure">
+                        <p><strong>Adventure:</strong> Modo aventura. Feito para mapas personalizados, com regras específicas de interação.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/modo-spectator.png" alt="Spectator">
+                        <p><strong>Spectator:</strong> Modo espectador. Nele você observa o mundo sem interagir com ele.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h3>🌍 O Mundo</h3>
-                <p>Blocos, biomas e criaturas.</p>
-            </div>
-            <div class="card">
-                <h3>🏆 Quiz</h3>
-                <p>8 perguntas para testar seus conhecimentos.</p>
-            </div>
+            <button class="seta" onclick="moverCarrossel('modos', 1)">▶</button>
         </div>
-    </div>
-    <footer>
-        Projeto acadêmico — JavaWeb + MySQL | Tema: Minecraft
-        <a href="adminLogin.jsp" style="color:#7ec850; text-decoration:none;">Área do Administrador</a> | 
-    </footer>
+        <a href="#curiosidade" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== CURIOSIDADE ===== -->
+    <section id="curiosidade" class="section" style="background-image: url('img/bg-curiosidade.png');">
+        <a href="#modos" class="btn-mc btn-subir">▲</a>
+        <h2>Curiosidade</h2>
+        <div class="texto-centro">
+            <p>O nome original do jogo era "Cave Game". A Mojang foi comprada pela Microsoft em 2014 por 2,5 bilhões de dólares. Minecraft tem versões para PC, consoles e celulares, e também uma versão educacional usada em escolas.</p>
+        </div>
+        <a href="#mundo" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== O MUNDO DE MINECRAFT ===== -->
+    <section id="mundo" class="section" style="background-image: url('img/bg-mundo.png');">
+        <a href="#curiosidade" class="btn-mc btn-subir">▲</a>
+        <h2>O Mundo de Minecraft</h2>
+        <div class="caixa-moldura">
+            <img src="img/mundo-imagem.png" alt="Mundo de Minecraft">
+            <p>O mundo de Minecraft é gerado proceduralmente: cada novo mapa é único. Ele é composto por diferentes biomas, cada um com blocos, plantas e criaturas características.</p>
+        </div>
+        <a href="#biomas" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== BIOMAS (CARROSSEL) ===== -->
+    <section id="biomas" class="section" style="background-image: url('img/bg-biomas.png');">
+        <a href="#mundo" class="btn-mc btn-subir">▲</a>
+        <h2>Biomas</h2>
+        <div class="carrossel-wrapper">
+            <button class="seta" onclick="moverCarrossel('biomas', -1)">◀</button>
+            <div class="carrossel-viewport">
+                <div class="carrossel-track" id="track-biomas">
+                    <div class="carrossel-slide">
+                        <img src="img/bioma-floresta.png" alt="Floresta">
+                        <p><strong>Floresta:</strong> Cheia de árvores, madeira e animais como porcos e ovelhas.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/bioma-deserto.jpg" alt="Deserto">
+                        <p><strong>Deserto:</strong> Areia, cactos e templos escondidos. Cuidado com os husks!</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/bioma-tundra.png" alt="Tundra">
+                        <p><strong>Tundra:</strong> Neve, gelo e ursos polares. Um dos biomas mais frios.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/bioma-oceano.png" alt="Oceano">
+                        <p><strong>Oceano:</strong> Grandes massas de água com monumentos e criaturas aquáticas.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="seta" onclick="moverCarrossel('biomas', 1)">▶</button>
+        </div>
+        <a href="#mobs" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== CRIATURAS (MOBS) - INTRO ===== -->
+    <section id="mobs" class="section" style="background-image: url('img/bg-mobs.png');">
+        <a href="#biomas" class="btn-mc btn-subir">▲</a>
+        <h2>Criaturas (Mobs)</h2>
+        <div class="texto-centro">
+            <p>Os mobs são as criaturas que habitam o mundo. Eles se dividem em passivos (como porcos e galinhas), neutros (como abelhas e endermen) e hostis (como zumbis, esqueletos e creepers).</p>
+        </div>
+        <a href="#mobs-carrossel" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== CRIATURAS (MOBS) - CARROSSEL ===== -->
+    <section id="mobs-carrossel" class="section" style="background-image: url('img/bg-mobs.png');">
+        <a href="#mobs" class="btn-mc btn-subir">▲</a>
+        <h2>Conheça os Mobs</h2>
+        <div class="carrossel-wrapper">
+            <button class="seta" onclick="moverCarrossel('mobs', -1)">◀</button>
+            <div class="carrossel-viewport">
+                <div class="carrossel-track" id="track-mobs">
+                    <div class="carrossel-slide">
+                        <img src="img/mob-creeper.gif" alt="Creeper">
+                        <p><strong>Creeper:</strong> O ícone do jogo. Explode ao chegar perto do jogador.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/mob-zumbi.gif" alt="Zumbi">
+                        <p><strong>Zumbi:</strong> Hostil, aparece à noite e persegue o jogador.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/mob-porco.gif" alt="Porco">
+                        <p><strong>Porco:</strong> Passivo, fonte de comida e montaria com sela. Adoram cenouras.</p>
+                    </div>
+                    <div class="carrossel-slide">
+                        <img src="img/mob-aranha.gif" alt="Aranha">
+                        <p><strong>Aranha:</strong> Neutra de dia, hostil à noite. Sobe paredes.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="seta" onclick="moverCarrossel('mobs', 1)">▶</button>
+        </div>
+        <a href="#blocos" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== BLOCOS IMPORTANTES ===== -->
+    <section id="blocos" class="section" style="background-image: url('img/bg-blocos.png');">
+        <a href="#mobs-carrossel" class="btn-mc btn-subir">▲</a>
+        <h2>Blocos Importantes</h2>
+        <div class="texto-centro">
+            <p>Os blocos são a base de tudo: terra, pedra, madeira, minérios (carvão, ferro, ouro, diamante), redstone (usada para circuitos) e obsidiana (resistente a explosões). Com eles você constrói ferramentas, armaduras e estruturas.</p>
+        </div>
+        <a href="#quiz" class="btn-mc btn-descer">▼</a>
+    </section>
+
+    <!-- ===== QUIZ (CHAMADA) ===== -->
+    <section id="quiz" class="section" style="background-image: url('img/bg-quiz.png');">
+        <a href="#blocos" class="btn-mc btn-subir">▲</a>
+        <h2>Quiz</h2>
+        <div class="texto-centro">
+            <p>Agora que você já sabe os pontos importantes do jogo, é hora de responder o quiz!</p>
+            <a href="login.jsp" class="btn-mc" style="margin-top: 20px;">Ir para o Quiz</a>
+        </div>
+    </section>
+
+    <!-- ===== JAVASCRIPT DOS CARROSSÉIS ===== -->
+    <script>
+        // Estado de cada carrossel: índice atual do slide
+        const estadoCarrossel = {
+            modos: 0,
+            biomas: 0,
+            mobs: 0
+        };
+
+        function moverCarrossel(id, direcao) {
+            const track = document.getElementById('track-' + id);
+            const slides = track.querySelectorAll('.carrossel-slide');
+            const total = slides.length;
+
+            estadoCarrossel[id] += direcao;
+
+            // Limita entre 0 e total-1
+            if (estadoCarrossel[id] < 0) estadoCarrossel[id] = 0;
+            if (estadoCarrossel[id] >= total) estadoCarrossel[id] = total - 1;
+
+            const deslocamento = -estadoCarrossel[id] * 100;
+            track.style.transform = 'translateX(' + deslocamento + '%)';
+        }
+    </script>
+
 </body>
 </html>
