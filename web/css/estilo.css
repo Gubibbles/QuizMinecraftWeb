@@ -130,7 +130,7 @@ body {
     text-align: justify;
 }
 
-/* ===== BOTÕES ESTILO MINECRAFT ===== */
+/* ===== BOTÕES ===== */
 .btn-mc {
     display: inline-block;
     background-color: #8b8b8b;
@@ -288,6 +288,119 @@ body {
     border: 3px solid #8b6b3d;
     padding: 25px;
     box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+}
+
+/* ===== PÁGINAS DE SISTEMA ===== */
+.pagina-sistema {
+    min-height: 100vh;
+    padding-top: 90px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.pagina-sistema::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.pagina-sistema > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Caixa de login/quiz */
+.caixa-sistema {
+    background-color: rgba(139, 139, 139, 0.95);
+    border: 4px solid;
+    border-color: #a0a0a0 #565656 #565656 #a0a0a0;
+    padding: 30px;
+    max-width: 480px;
+    width: 90%;
+    color: #1a1a1a;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.caixa-sistema h2 {
+    font-family: 'VT323', monospace;
+    font-size: 2.2em;
+    color: #1a1a1a;
+    text-shadow: 1px 1px 0 #aaa;
+    border-bottom: 2px solid #565656;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.caixa-sistema p {
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.caixa-sistema input[type="text"],
+.caixa-sistema input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 2px solid #565656;
+    font-size: 1.1em;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.caixa-sistema input:focus {
+    outline: none;
+    border-color: #7ec850;
+}
+
+.caixa-sistema .btn-mc {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* Mensagens de erro/sucesso */
+.msg-erro-sistema {
+    background-color: #5a1e1e;
+    color: #ff9999;
+    padding: 12px;
+    border: 1px solid #ff4444;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.msg-sucesso-sistema {
+    background-color: #1e3a1e;
+    color: #99ff99;
+    padding: 12px;
+    border: 1px solid #44ff44;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+/* Link "voltar" nas páginas de sistema */
+.link-voltar {
+    display: inline-block;
+    margin-top: 15px;
+    color: #aaa;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 1.2em;
+}
+
+.link-voltar:hover {
+    color: #fff;
 }
 
 /* ===== FOOTER ===== */
