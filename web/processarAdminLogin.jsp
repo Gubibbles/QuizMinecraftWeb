@@ -4,7 +4,7 @@
     String senha = request.getParameter("senha");
 
     // Senha do admin
-    String SENHA_ADMIN = "adenor";
+    String SENHA_ADMIN = "Antenor";
 
     if (SENHA_ADMIN.equals(senha)) {
         session.setAttribute("adminLogado", true);

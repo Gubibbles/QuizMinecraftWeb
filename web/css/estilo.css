@@ -164,7 +164,13 @@ body {
     right: 30px;
     z-index: 2;
     font-size: 1.3em;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    line-height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 /* Botão subir */
@@ -174,7 +180,13 @@ body {
     right: 30px;
     z-index: 2;
     font-size: 1.3em;
-    padding: 10px 20px;
+    padding: 12px 20px;
+    line-height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 /* ===== CARROSSEL DE IMAGENS ===== */
@@ -258,7 +270,16 @@ body {
     text-shadow: 5px 5px 0 #3f3f3f, 10px 10px 0 #1a1a1a;
     text-align: center;
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.hero-logo {
+    height: 400px;
+    width: auto;
+    display: block;
+    margin: 0 auto 5px auto;
+    image-rendering: pixelated;
+    filter: drop-shadow(4px 4px 0 rgba(0, 0, 0, 0.6));
 }
 
 .hero-subtitulo {
@@ -267,7 +288,7 @@ body {
     color: #7ec850;
     text-shadow: 3px 3px 0 #1a1a1a;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .hero-info {
@@ -276,6 +297,13 @@ body {
     text-align: center;
     max-width: 700px;
     margin-bottom: 35px;
+}
+
+#inicio {
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-top: 80px;
+    padding-bottom: 40px;
 }
 
 /* ===== TEXTO CENTRALIZADO EM SEÇÃO ===== */
@@ -403,12 +431,198 @@ body {
     color: #fff;
 }
 
-/* ===== FOOTER ===== */
-footer {
-    background-color: #2a2a2a;
+/* ===== IMAGENS FLUTUANTES COM TOOLTIP ===== */
+.img-flutuante-wrapper {
+    position: absolute !important;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    z-index: 2 !important;
+    transition: transform 0.3s ease;
+}
+
+.img-flutuante-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.7));
+    transition: filter 0.3s ease;
+}
+
+.img-flutuante-wrapper:hover {
+    transform: scale(1.35);
+    z-index: 10;
+}
+
+.img-flutuante-wrapper:hover img {
+    filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.9)) brightness(1.1);
+}
+
+/* Tooltip que aparece ao passar o mouse */
+.img-flutuante-wrapper::after {
+    content: attr(data-nome);
+    position: absolute;
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(26, 26, 26, 0.95);
+    color: #7ec850;
+    font-family: 'VT323', monospace;
+    font-size: 1.1em;
+    padding: 5px 12px;
+    border: 2px solid #7ec850;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.img-flutuante-wrapper:hover::after {
+    opacity: 1;
+    bottom: 110%;
+}
+
+/* Posições específicas por seção */
+.pos-esq-cima { top: 15%; left: 12%; }
+.pos-esq-baixo { bottom: 15%; left: 12%; }
+.pos-dir-cima { top: 15%; right: 12%; }
+.pos-dir-baixo { bottom: 15%; right: 12%; }
+.pos-esq-meio { top: 45%; left: 12%; }
+.pos-dir-meio { top: 45%; right: 12%; }
+
+/* Seção de blocos */
+.secao-blocos .img-flutuante-wrapper { width: 75px; height: 75px; }
+
+.section > .img-flutuante-wrapper {
+    position: absolute;
+    z-index: 2;
+}
+
+/* Tooltips que aparecem abaixo das imagens */
+.img-flutuante-wrapper.tooltip-baixo::after {
+    bottom: auto;
+    top: 105%;
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.img-flutuante-wrapper.tooltip-baixo:hover::after {
+    opacity: 1;
+    top: 110%;
+    bottom: auto;
+}
+
+/* Ícone de admin no canto superior direito do header */
+.admin-icon {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Imagem do ícone */
+.admin-icon img {
+    height: 35px;
+    filter: grayscale(1);
+    transition: filter 0.2s, transform 0.2s;
+}
+
+.admin-icon:hover img {
+    filter: grayscale(0);
+    transform: scale(1.15);
+}
+
+/* Imagem da seta dentro dos botões */
+.seta-img {
+    height: 30px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(1px 1px 0 #1a1a1a) drop-shadow(-1px -1px 0 #1a1a1a);
+    transition: transform 0.2s;
+}
+
+.seta-img-cima {
+    transform: rotate(180deg);
+}
+
+/* GIF no resultado do quiz */
+.gif-resultado {
+    display: block;
+    margin: 8px auto;
+    width: 120px !important;
+    max-width: 120px !important;
+    height: auto !important;
+    image-rendering: pixelated;
+    border: 2px solid #1a1a1a;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+/* ===== MODAL DE EXCLUSÃO ===== */
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000 !important;
+}
+
+.modal-overlay.ativo {
+    display: flex !important;
+}
+
+.modal-caixa {
+    background-color: rgba(139, 139, 139, 0.98);
+    border: 4px solid;
+    border-color: #a0a0a0 #565656 #565656 #a0a0a0;
+    padding: 30px;
+    max-width: 450px;
+    width: 90%;
     text-align: center;
-    padding: 20px;
-    border-top: 3px solid #8b6b3d;
-    color: #888;
-    font-size: 0.9em;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.6);
+    color: #1a1a1a;
+}
+
+.modal-caixa h2 {
+    font-family: 'VT323', monospace;
+    font-size: 2em;
+    color: #1a1a1a;
+    text-shadow: 1px 1px 0 #aaa;
+    border-bottom: 2px solid #565656;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-caixa p {
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.modal-botoes .btn-mc {
+    flex: 1;
+}
+
+.btn-sair {
+    background-color: #8b2a2a;
+    border-color: #c03a3a #5a1e1e #5a1e1e #c03a3a;
+}
+
+.btn-sair:hover {
+    background-color: #c03a3a;
+    border-color: #ff9999 #8b1a1a #8b1a1a #ff9999;
+    color: #fff;
 }

@@ -42,34 +42,61 @@
     <title>Editar Respostas - Admin</title>
     <link rel="stylesheet" href="css/estilo.css">
     <style>
-        .form-box {
-            background-color: #2a2a2a;
-            padding: 30px;
-            border-radius: 10px;
-            border: 2px solid #8b6b3d;
-            max-width: 700px;
+        .form-edicao {
+            max-width: 600px;
+            width: 95%;
             margin: 0 auto;
         }
-        .form-box label { display: block; margin: 12px 0 5px; color: #7ec850; font-weight: bold; }
-        .form-box input[type="number"] {
-            width: 100%; padding: 8px; border-radius: 5px;
-            border: 1px solid #8b6b3d; background-color: #1a1a1a; color: #fff;
+        .form-edicao label {
+            display: block;
+            margin: 12px 0 5px;
+            color: #1a1a1a;
+            font-family: 'VT323', monospace;
+            font-size: 1.3em;
+        }
+        .form-edicao input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 2px solid #565656;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 1.1em;
+        }
+        .form-edicao input[type="number"]:focus {
+            outline: none;
+            border-color: #7ec850;
+        }
+        .form-edicao .botoes {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .form-edicao .botoes .btn-mc {
+            flex: 1;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>⛏ EDITAR RESPOSTAS ⛏</h1>
+
+    <header class="site-header">
+        <a href="index.html">
+            <img src="img/logo-minecraft.png" alt="Minecraft" class="logo-img">
+        </a>
+        <nav>
+            <a href="admin.jsp">Painel</a>
+            <a href="relatorioUsuarios.jsp">Usuários</a>
+            <a href="relatorioResumo.jsp">Resumo</a>
+            <a href="logoutAdmin.jsp">Sair</a>
+        </nav>
+        <a href="adminLogin.jsp" class="admin-icon" title="Área do Administrador">⚙</a>
     </header>
-    <nav>
-        <a href="admin.jsp">Painel</a>
-        <a href="relatorioUsuarios.jsp">Relatório de Usuários</a>
-        <a href="relatorioResumo.jsp">Relatório Resumo</a>
-        <a href="logoutAdmin.jsp">Sair</a>
-    </nav>
-    <div class="container">
-        <h2>Editar respostas de: <%= nomeUsuario %></h2>
-        <div class="form-box">
+
+    <div class="pagina-sistema" style="background-image: url('img/bg-quiz-v2.png');">
+        <div class="caixa-sistema form-edicao">
+            <h2>Editar Respostas</h2>
+            <p>Jogador: <strong><%= nomeUsuario %></strong></p>
+
             <form method="POST" action="salvarEdicao.jsp">
                 <input type="hidden" name="id" value="<%= id %>">
                 <input type="hidden" name="usuarioId" value="<%= usuarioId %>">
@@ -98,14 +125,13 @@
                 <label>Questão 8 (1-4):</label>
                 <input type="number" name="r8" min="1" max="4" value="<%= r8 %>" required>
 
-                <br><br>
-                <button type="submit" class="btn">Salvar Alterações</button>
-                <a href="relatorioUsuarios.jsp" class="btn">Cancelar</a>
+                <div class="botoes">
+                    <button type="submit" class="btn-mc">Salvar Alterações</button>
+                    <a href="relatorioUsuarios.jsp" class="btn-mc">Cancelar</a>
+                </div>
             </form>
         </div>
     </div>
-    <footer>
-        Projeto acadêmico — JavaWeb + MySQL | Tema: Minecraft
-    </footer>
+
 </body>
 </html>

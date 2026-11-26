@@ -10,7 +10,6 @@
     RespostaDAO dao = new RespostaDAO();
     int total = dao.contarEntrevistados();
 
-    // Matriz de contagens
     int[][] contagens = new int[8][4];
     for (int q = 0; q < 8; q++) {
         for (int a = 1; a <= 4; a++) {
@@ -37,30 +36,45 @@
     <title>Relatório Resumo - Admin</title>
     <link rel="stylesheet" href="css/estilo.css">
     <style>
+        .resumo-container {
+            max-width: 900px;
+            width: 95%;
+            margin: 0 auto;
+        }
         .resumo-total {
-            background-color: #2a2a2a;
-            border: 2px solid #7ec850;
-            border-radius: 10px;
+            background-color: rgba(139, 139, 139, 0.95);
+            border: 4px solid;
+            border-color: #a0a0a0 #565656 #565656 #a0a0a0;
             padding: 20px;
             text-align: center;
             margin: 25px 0;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.5);
         }
         .resumo-total .num {
-            font-size: 3em;
-            color: #7ec850;
+            font-family: 'VT323', monospace;
+            font-size: 4em;
+            color: #1a1a1a;
+            text-shadow: 2px 2px 0 #aaa;
             font-weight: bold;
         }
+        .resumo-total p {
+            color: #1a1a1a;
+            text-align: center;
+        }
         .questao-resumo {
-            background-color: #2a2a2a;
-            border: 1px solid #444;
-            border-radius: 8px;
+            background-color: rgba(139, 139, 139, 0.95);
+            border: 4px solid;
+            border-color: #a0a0a0 #565656 #565656 #a0a0a0;
             padding: 18px;
             margin-bottom: 15px;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
         }
         .questao-resumo h3 {
-            color: #7ec850;
+            font-family: 'VT323', monospace;
+            font-size: 1.3em;
+            color: #1a1a1a;
+            text-shadow: 1px 1px 0 #aaa;
             margin-bottom: 12px;
-            font-size: 1.05em;
         }
         .barra-linha {
             display: flex;
@@ -69,7 +83,7 @@
         }
         .barra-label {
             width: 30px;
-            color: #aaa;
+            color: #1a1a1a;
             font-weight: bold;
         }
         .barra-container {
@@ -86,69 +100,82 @@
             transition: width 0.5s;
         }
         .barra-valor {
-            width: 70px;
+            width: 80px;
             text-align: right;
-            color: #ddd;
+            color: #1a1a1a;
             font-size: 0.9em;
+            font-weight: bold;
         }
-        .sem-dados { text-align: center; color: #aaa; padding: 20px; }
+        .sem-dados {
+            text-align: center;
+            color: #ddd;
+            padding: 30px;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>⛏ RELATÓRIO RESUMO ⛏</h1>
+
+    <header class="site-header">
+        <a href="index.html">
+            <img src="img/logo-minecraft.png" alt="Minecraft" class="logo-img">
+        </a>
+        <nav>
+            <a href="admin.jsp">Painel</a>
+            <a href="relatorioUsuarios.jsp">Usuários</a>
+            <a href="relatorioResumo.jsp">Resumo</a>
+            <a href="logoutAdmin.jsp">Sair</a>
+        </nav>
+        <a href="adminLogin.jsp" class="admin-icon" title="Área do Administrador">
+            <img src="img/admin-icon.png" alt="Admin">
+        </a>
     </header>
-    <nav>
-        <a href="admin.jsp">Painel</a>
-        <a href="relatorioUsuarios.jsp">Relatório de Usuários</a>
-        <a href="relatorioResumo.jsp">Relatório Resumo</a>
-        <a href="logoutAdmin.jsp">Sair</a>
-    </nav>
-    <div class="container">
-        <h2>Resumo Geral</h2>
 
-        <div class="resumo-total">
-            <p style="color:#aaa; text-align:center;">Total de entrevistados</p>
-            <div class="num"><%= total %></div>
-        </div>
+    <div class="pagina-sistema" style="background-image: url('img/bg-quiz-v2.png');">
+        <div class="resumo-container">
+            <h2 style="font-family: 'VT323', monospace; font-size: 3em; color: #fff; text-shadow: 4px 4px 0 #1a1a1a; margin-bottom: 20px; text-align: center;">Relatório Resumo</h2>
 
-        <h2>Percentuais por Questão</h2>
-
-        <%
-            if (total == 0) {
-        %>
-            <p class="sem-dados">Nenhuma resposta registrada ainda.</p>
-        <%
-            } else {
-                for (int q = 0; q < 8; q++) {
-                    int somaQ = 0;
-                    for (int a = 0; a < 4; a++) somaQ += contagens[q][a];
-        %>
-            <div class="questao-resumo">
-                <h3><%= enunciados[q] %></h3>
-                <%
-                    for (int a = 0; a < 4; a++) {
-                        int qtd = contagens[q][a];
-                        double pct = (somaQ > 0) ? (qtd * 100.0 / somaQ) : 0;
-                %>
-                    <div class="barra-linha">
-                        <div class="barra-label"><%= (a+1) %></div>
-                        <div class="barra-container">
-                            <div class="barra-preenchida" style="width: <%= pct %>%"></div>
-                        </div>
-                        <div class="barra-valor"><%= qtd %> (<%= String.format("%.1f", pct) %>%)</div>
-                    </div>
-                <%
-                    }
-                %>
+            <div class="resumo-total">
+                <p style="color:#1a1a1a;">Total de entrevistados</p>
+                <div class="num"><%= total %></div>
             </div>
-        <%
+
+            <h2 style="font-family: 'VT323', monospace; font-size: 2.2em; color: #fff; text-shadow: 3px 3px 0 #1a1a1a; margin: 20px 0; text-align: center;">Percentuais por Questão</h2>
+
+            <%
+                if (total == 0) {
+            %>
+                <p class="sem-dados">Nenhuma resposta registrada ainda.</p>
+            <%
+                } else {
+                    for (int q = 0; q < 8; q++) {
+                        int somaQ = 0;
+                        for (int a = 0; a < 4; a++) somaQ += contagens[q][a];
+            %>
+                <div class="questao-resumo">
+                    <h3><%= enunciados[q] %></h3>
+                    <%
+                        for (int a = 0; a < 4; a++) {
+                            int qtd = contagens[q][a];
+                            double pct = (somaQ > 0) ? (qtd * 100.0 / somaQ) : 0;
+                    %>
+                        <div class="barra-linha">
+                            <div class="barra-label"><%= (a+1) %></div>
+                            <div class="barra-container">
+                                <div class="barra-preenchida" style="width: <%= pct %>%"></div>
+                            </div>
+                            <div class="barra-valor"><%= qtd %> (<%= String.format("%.1f", pct) %>%)</div>
+                        </div>
+                    <%
+                        }
+                    %>
+                </div>
+            <%
+                    }
                 }
-            }
-        %>
+            %>
+        </div>
     </div>
-    <footer>
-        Projeto acadêmico — JavaWeb + MySQL | Tema: Minecraft
-    </footer>
+
 </body>
 </html>

@@ -72,11 +72,25 @@
         </nav>
     </header>
 
-    <div class="pagina-sistema" style="background-image: url('img/bg-quiz.jpg');">
+    <div class="pagina-sistema" style="background-image: url('img/bg-quiz-v2.png');">
         <div class="caixa-sistema">
             <h2>Resultado do Quiz</h2>
             <p>Jogador: <strong><%= usuarioNome %></strong></p>
+
+            <%
+                String gifResultado;
+                if (acertos >= 6) {
+                    gifResultado = "img/gif-excelente.gif";
+                } else if (acertos >= 4) {
+                    gifResultado = "img/gif-bom.gif";
+                } else {
+                    gifResultado = "img/gif-continue.gif";
+                }
+            %>
+            <img src="<%= gifResultado %>" alt="Resultado" class="gif-resultado" style="width: 120px; height: auto;">
+
             <div class="nota-grande"><%= acertos %> / 8</div>
+
             <%
                 if (ok) {
             %>
