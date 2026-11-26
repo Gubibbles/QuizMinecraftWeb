@@ -1,3 +1,4 @@
+
 # Quiz Minecraft - Projeto JavaWeb
 
 Projeto acadêmico desenvolvido para a disciplina de Análise e Implementação de Software. O site tem como tema o jogo **Minecraft** e oferece uma experiência interativa de aprendizado, com informações sobre o jogo e um quiz para testar os conhecimentos dos usuários.
@@ -8,7 +9,7 @@ O sistema é composto por duas áreas principais:
 1. **Área do Usuário:** Uma landing page interativa com informações sobre o Minecraft (história, modos de jogo, biomas, criaturas e blocos). Ao final, o usuário pode fazer login com um nome único (sem senha) e responder a um quiz de 8 perguntas.
 2. **Área do Administrador:** Uma área restrita (com senha) onde o administrador pode visualizar os relatórios de usuários, o resumo de respostas (com percentuais) e gerenciar (editar/excluir) as respostas dos usuários.
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
 - **Landing Page Interativa:** Navegação com rolagem suave, animações, carrosséis de imagens e imagens flutuantes com efeito hover e tooltips.
 - **Sistema de Login (Usuário):** Filtro que impede nomes de usuário duplicados (não requer senha, apenas um nome único).
@@ -30,6 +31,7 @@ O sistema é composto por duas áreas principais:
 
 ## Estrutura do Projeto
 
+```text
 QuizMinecraftWeb/
 ├── src/java/
 │   ├── DAO/
