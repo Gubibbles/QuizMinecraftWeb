@@ -29,6 +29,24 @@ O sistema é composto por duas áreas principais:
 - **IDE:** Apache NetBeans
 - **Versionamento:** Git e GitHub Desktop
 
+## Como executar o projeto
+
+1. **Banco de dados:** Inicie o MySQL (via XAMPP ou instalação local) e execute o script SQL acima.
+2. **Driver MySQL:** Certificar-se de que o arquivo **mysql-connector-java-8.0.13.jar** está nas **Libraries** do projeto no NetBeans.
+3. **Conexão:** Verificar as credenciais no arquivo **util/ConectaBD.java** (usuário root, senha vazia, porta 3306).
+4.**Servidor:** Iniciar o Apache Tomcat (versão 8.5 ou superior).
+5.**Execução** No NetBeans, clicar com o botão direito no projeto e selecionar Run (ou pressionar F6).
+6.**Acesso:** O navegador deve abrir automaticamente em http://localhost:8080/QuizMinecraftWeb/.
+
+## Credenciais de acesso
+
+- **Área do Administrador:** Acessar pelo ícone de bloco de comando no canto superior direito do site. (senha: Antenor)
+
+## Autora
+- **Rúbia Grasiela dos Santos Tavares**
+- **Curso:** Análise e Desenvolvimento de Sistemas
+- **Instituição:** Universidade de Mogi das Cruzes - UMC 
+
 ## Estrutura do Projeto
 
 ```text
@@ -88,21 +106,3 @@ CREATE TABLE respostas (
     data_resposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
-
-## Como executar o projeto
-
-1. **Banco de dados:** Inicie o MySQL (via XAMPP ou instalação local) e execute o script SQL acima.
-2. **Driver MySQL:** Certificar-se de que o arquivo **mysql-connector-java-8.0.13.jar** está nas **Libraries** do projeto no NetBeans.
-3. **Conexão:** Verificar as credenciais no arquivo **util/ConectaBD.java** (usuário root, senha vazia, porta 3306).
-4.**Servidor:** Iniciar o Apache Tomcat (versão 8.5 ou superior).
-5.**Execução** No NetBeans, clicar com o botão direito no projeto e selecionar Run (ou pressionar F6).
-6.**Acesso:** O navegador deve abrir automaticamente em http://localhost:8080/QuizMinecraftWeb/.
-
-## Credenciais de acesso
-
-- **Área do Administrador:** Acessar pelo ícone de bloco de comando no canto superior direito do site. (senha: Antenor)
-
-## Autora
-- **Rúbia Grasiela dos Santos Tavares**
-- **Curso:** Análise e Desenvolvimento de Sistemas
-- **Instituição:** Universidade de Mogi das Cruzes - UMC 
