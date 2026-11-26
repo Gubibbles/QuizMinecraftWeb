@@ -3,11 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/css/estilo.css</file>
             <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/index.html</file>
             <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/login.jsp</file>
             <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/quiz.jsp</file>
             <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/processarQuiz.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/relatorioUsuarios.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/relatorioResumo.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/processarLogin.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/processarAdminLogin.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/logoutAdmin.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/css/estilo.css</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/web/editarResposta.jsp</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/src/java/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Rúbia/Documents/GitHub/QuizMinecraftWeb/src/java/DAO/RespostaDAO.java</file>
         </group>
     </open-files>
 </project-private>
